@@ -20,5 +20,5 @@ angular.module('hcrcApp')
                 //     return meaningOfLife;
                 //   }
                 // };
-                return CONFIG.ENV === 'dev' ? $resource(CONFIG.ENV.DEV.HOST + 'product/:id') : $resource(CONFIG.ENV.PROD.HOST + 'product/:id');
+                return CONFIG.ENV === 'dev' ? $resource(CONFIG.DEV.HOST + 'product/:id') : $resource(CONFIG.PROD.HOST + 'product/:id');
             }]);
