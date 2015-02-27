@@ -10,7 +10,7 @@
 angular.module('hcrcApp')
         .controller('ProductCtrl', ['$scope', 'productFactory', function ($scope, productFactory) {
             // Models
-            $scope.products;
+            $scope.products = [];
 
             // Get all products
             productFactory.query(function (data) {
