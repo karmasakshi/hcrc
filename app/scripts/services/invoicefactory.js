@@ -8,16 +8,6 @@
  * Factory in the hcrcApp.
  */
 angular.module('hcrcApp')
-  .factory('invoiceFactory', function () {
-    // Service logic
-    // ...
-
-    var meaningOfLife = 42;
-
-    // Public API here
-    return {
-      someMethod: function () {
-        return meaningOfLife;
-      }
-    };
-  });
+        .factory('invoiceFactory', function () {
+            return CONFIG.ENV === 'dev' ? $resource(CONFIG.DEV.HOST + 'invoice/:id') : $resource(CONFIG.PROD.HOST + 'invoice/:id');
+        });
