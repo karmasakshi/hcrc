@@ -15,7 +15,8 @@ angular
     'ngCookies',
     'ngMessages',
     'ngResource',
-    'ngRoute'
+    'ngRoute',
+    'ngSanitize'
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -27,21 +28,21 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
-      .when('/invoice', {
-        templateUrl: 'views/invoice.html',
-        controller: 'InvoiceCtrl'
+      .when('/product', {
+        templateUrl: 'views/product.html',
+        controller: 'ProductCtrl'
       })
-      .when('/user', {
-        templateUrl: 'views/user.html',
-        controller: 'UserCtrl'
+      .when('/admin', {
+        templateUrl: 'views/admin.html',
+        controller: 'AdminCtrl'
       })
       .when('/trader', {
         templateUrl: 'views/trader.html',
         controller: 'TraderCtrl'
       })
-      .when('/product', {
-        templateUrl: 'views/product.html',
-        controller: 'ProductCtrl'
+      .when('/invoice', {
+        templateUrl: 'views/invoice.html',
+        controller: 'InvoiceCtrl'
       })
       .when('/report', {
         templateUrl: 'views/report.html',
