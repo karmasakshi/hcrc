@@ -8,7 +8,7 @@
  * Factory in the hcrcApp.
  */
 angular.module('hcrcApp')
-  .factory('productFactory', function () {
+  .factory('productFactory', function ($resource) {
     // Service logic
     // ...
 

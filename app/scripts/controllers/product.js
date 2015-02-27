@@ -8,33 +8,34 @@
  * Controller of the hcrcApp
  */
 angular.module('hcrcApp')
-  .controller('ProductCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+        .controller('ProductCtrl', ['$scope', 'productFactory', function ($scope, productFactory) {
+            // Models
+            $scope.products;
 
-    product.query(function (data) {
-                console.log(data);
+            // Get all products
+            productFactory.query(function (data) {
                 $scope.products = data;
             }, function (err) {
-                console.log('Fat gaya bc.')
+                console.log(err);
             });
 
-            product.get({id: 1}, function (data) {
-                console.log(data);
-                $scope.products = data;
-            }, function (err) {
-                console.log('Fat gaya bc.');
-            });
-
-            product.save({name: 'IOkC'}, {name: 'JituIOC'}, function(data){console.log(data);}, function(err){console.log('Fat gaya bc.');});
-
-            product.query(function (data) {
-                console.log(data);
-                $scope.products = data;
-            });
-
-            product.delete({id: 1});
-  });
+//            product.get({id: 1}, function (data) {
+//                console.log(data);
+//                $scope.products = data;
+//            }, function (err) {
+//                console.log('Fat gaya bc.');
+//            });
+//
+//            product.save({name: 'IOkC'}, {name: 'JituIOC'}, function (data) {
+//                console.log(data);
+//            }, function (err) {
+//                console.log('Fat gaya bc.');
+//            });
+//
+//            product.query(function (data) {
+//                console.log(data);
+//                $scope.products = data;
+//            });
+//
+//            product.delete({id: 1});
+        }]);

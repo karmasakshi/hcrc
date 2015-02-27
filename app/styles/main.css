@@ -9,7 +9,11 @@
 /* Bootstrap Overrides */
 /* Firefox specific rule; recommended in Bootstrap docs */
 @-moz-document url-prefix() {
-  fieldset { display: table-cell; }
+    fieldset { display: table-cell; }
+}
+
+.btn {
+    padding: 4px 10px;
 }
 
 .navbar-brand {
@@ -23,10 +27,14 @@
     height: 35px;
 }
 
+.table > tbody > tr > td {
+    vertical-align: initial;
+}
+
 /* Global Styles */
 body {
     -webkit-font-smoothing: antialiased;
-    padding-top: 50px;
+    padding-top: 70px;
 }
 
 /* Custom Rules */

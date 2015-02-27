@@ -1,26 +1,64 @@
-<div class="container-fluid">
-    <h3 class="text-center">Products</h3>
-    <hr>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="well well-sm text-center">
+                <span class="lead"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Products</span>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="well well-sm text-right">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-product-modal"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Product</button>
+            </div>
+        </div>
+    </div>
 </div>
+
 <div class="container">
     <div class="table-responsive">
         <table class="table table-striped table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Username</th>
+                    <th class="text-center">#</th>
+                    <th>Name</th>
+                    <th class="text-right">Default Price</th>
+                    <th class="text-center">Unit</th>
+                    <th class="text-center">Actions</th>
+                    <th class="text-center">Active</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@twitter</td>
+                <tr ng-repeat="product in products">
+                    <th scope="row" class="text-center">{{product.id}}</th>
+                    <td>{{product.name}}</td>
+                    <td class="text-right">{{product.defaultprice| currency: '₹'}}</td>
+                    <td class="text-center">{{product.unit}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-primary">View Report</button>
+                        <button class="btn btn-sm btn-warning">Edit Product</button>
+                    </td>
+                    <td ng-class="{success: product.active, danger: !product.active}"></td>
                 </tr>
             </tbody>
         </table>
+    </div>
+</div>
+
+<div class="modal fade" id="add-product-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Add Product</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+        </div>
     </div>
 </div>

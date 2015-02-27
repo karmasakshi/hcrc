@@ -51,4 +51,8 @@ angular
       .otherwise({
         redirectTo: '/'
       });
+  }).run(function($location, $rootScope){
+      $rootScope.$on("$routeChangeSuccess", function() {
+          $rootScope.navtab = $location.path().substr(1);
+        });
   });
