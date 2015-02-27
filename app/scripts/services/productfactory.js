@@ -8,17 +8,17 @@
  * Factory in the hcrcApp.
  */
 angular.module('hcrcApp')
-  .factory('productFactory', function ($resource) {
-    // Service logic
-    // ...
+        .factory('productFactory', ['$resource', 'CONFIG', function ($resource, CONFIG) {
+                // Service logic
+                // ...
 
-    var meaningOfLife = 42;
+                var meaningOfLife = 42;
 
-    // Public API here
-    // return {
-    //   someMethod: function () {
-    //     return meaningOfLife;
-    //   }
-    // };
-    return $resource("http://localhost:1337/product/:id");
-  });
+                // Public API here
+                // return {
+                //   someMethod: function () {
+                //     return meaningOfLife;
+                //   }
+                // };
+                return CONFIG.ENV === 'dev' ? $resource(CONFIG.ENV.DEV.HOST + 'product/:id') : $resource(CONFIG.ENV.PROD.HOST + 'product/:id');
+            }]);
