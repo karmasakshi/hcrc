@@ -9,15 +9,15 @@
  */
 angular.module('hcrcApp')
         .controller('ProductCtrl', ['$scope', 'productFactory', function ($scope, productFactory) {
-            // Models
-            $scope.products = [];
+                // Models
+                $scope.products = [];
 
-            // Get all products
-            productFactory.query(function (data) {
-                $scope.products = data;
-            }, function (err) {
-                console.log(err);
-            });
+                // Get all products
+                productFactory.query(function (data) {
+                    $scope.products = data;
+                }, function (err) {
+                    console.log(err);
+                });
 
 //            product.get({id: 1}, function (data) {
 //                console.log(data);
@@ -38,4 +38,4 @@ angular.module('hcrcApp')
 //            });
 //
 //            product.delete({id: 1});
-        }]);
+            }]);

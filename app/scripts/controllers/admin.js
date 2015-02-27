@@ -8,10 +8,14 @@
  * Controller of the hcrcApp
  */
 angular.module('hcrcApp')
-  .controller('AdminCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+        .controller('AdminCtrl', ['$scope', 'adminFactory', function ($scope, adminFactory) {
+                // Models
+                $scope.admins = [];
+
+                // Get all admins
+                adminFactory.query(function (data) {
+                    $scope.admins = data;
+                }, function (err) {
+                    console.log(err);
+                });
+            }]);

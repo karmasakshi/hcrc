@@ -9,5 +9,5 @@
  */
 angular.module('hcrcApp')
         .factory('traderFactory', ['$resource', 'CONFIG', function ($resource, CONFIG) {
-            return CONFIG.ENV === 'dev' ? $resource(CONFIG.DEV.HOST + 'trader/:id') : $resource(CONFIG.PROD.HOST + 'trader/:id');
-        }]);
+                return CONFIG.ENV === 'dev' ? $resource(CONFIG.DEV.HOST + 'trader/:id') : $resource(CONFIG.PROD.HOST + 'trader/:id');
+            }]);

@@ -1,1 +1,62 @@
-<p>This is the admin view.</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="well well-sm text-center">
+                <span class="lead"><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Admins</span>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="well well-sm text-right">
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-admin-modal"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Admin</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th class="text-center">Actions</th>
+                    <th class="text-center">Active</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="admin in admins">
+                    <th scope="row" class="text-center">{{admin.id}}</th>
+                    <td>{{admin.username}}</td>
+                    <td>{{admin.password}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-primary">Admin Report</button>
+                        <button class="btn btn-sm btn-warning">Edit Admin</button>
+                    </td>
+                    <td ng-class="{success: admin.active, danger: !admin.active}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="add-admin-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Add Admin</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+</div>

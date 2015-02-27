@@ -8,10 +8,14 @@
  * Controller of the hcrcApp
  */
 angular.module('hcrcApp')
-  .controller('InvoiceCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+        .controller('InvoiceCtrl', ['$scope', 'invoiceFactory', function ($scope, invoiceFactory) {
+                // Models
+                $scope.invoices = [];
+
+                // Get all invoices
+                invoiceFactory.query(function (data) {
+                    $scope.invoices = data;
+                }, function (err) {
+                    console.log(err);
+                });
+            }]);

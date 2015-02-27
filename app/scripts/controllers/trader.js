@@ -9,21 +9,21 @@
  */
 angular.module('hcrcApp')
         .controller('TraderCtrl', ['$scope', 'traderFactory', function ($scope, traderFactory) {
-            // Models
-            $scope.traders = [];
+                // Models
+                $scope.traders = [];
 
-            // Get all traders
-            traderFactory.query(function (data) {
-                angular.forEach(data, function(trader){
-                    if(trader.phones !== null){
-                        trader.phones = trader.phones.split(',');
-                    }
-                    if(trader.emails !== null){
-                        trader.emails = trader.emails.split(',');
-                    }
-                    $scope.traders.push(trader);
+                // Get all traders
+                traderFactory.query(function (data) {
+                    angular.forEach(data, function (trader) {
+                        if (trader.phones !== null) {
+                            trader.phones = trader.phones.split(',');
+                        }
+                        if (trader.emails !== null) {
+                            trader.emails = trader.emails.split(',');
+                        }
+                        $scope.traders.push(trader);
+                    });
+                }, function (err) {
+                    console.log(err);
                 });
-            }, function (err) {
-                console.log(err);
-            });
-        }]);
+            }]);
