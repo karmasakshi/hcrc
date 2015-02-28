@@ -70,5 +70,6 @@ angular
             });
             $rootScope.$on('$routeChangeSuccess', function () {
                 $rootScope.navtab = $location.path().split('/')[1];
+                NProgress.done();
             });
         });

@@ -8,10 +8,19 @@
  * Controller of the hcrcApp
  */
 angular.module('hcrcApp')
-  .controller('TraderprofileCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+        .controller('TraderprofileCtrl', ['$routeParams', '$scope', 'traderFactory', function ($routeParams, $scope, traderFactory) {
+                // Models
+                $scope.trader;
+
+                traderFactory.get({id: $routeParams.id}, function (data) {
+                    $scope.trader = data;
+
+                    // Indicate loading complete
+                    NProgress.done();
+                }, function (err) {
+                    console.log(err);
+
+                    // Indicate loading complete
+                    NProgress.done();
+                });
+            }]);

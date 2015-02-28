@@ -7,18 +7,11 @@
  * # productFactory
  * Factory in the hcrcApp.
  */
+
 angular.module('hcrcApp')
         .factory('productFactory', ['$resource', 'CONFIG', function ($resource, CONFIG) {
-                // Service logic
-                // ...
-
-                var meaningOfLife = 42;
-
-                // Public API here
-                // return {
-                //   someMethod: function () {
-                //     return meaningOfLife;
-                //   }
-                // };
-                return CONFIG.ENV === 'dev' ? $resource(CONFIG.DEV.HOST + 'product/:id') : $resource(CONFIG.PROD.HOST + 'product/:id');
+                return (CONFIG.ENV === 'dev' ?
+                        $resource(CONFIG.DEV.HOST + 'product/:id', {}, {update: {method: 'PUT'}})
+                        :
+                        $resource(CONFIG.PROD.HOST + 'product/:id', {}, {update: {method: 'PUT'}}));
             }]);

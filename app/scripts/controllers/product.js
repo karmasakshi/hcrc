@@ -7,41 +7,32 @@
  * # ProductCtrl
  * Controller of the hcrcApp
  */
+
 angular.module('hcrcApp')
         .controller('ProductCtrl', ['$scope', 'productFactory', function ($scope, productFactory) {
                 // Models
                 $scope.products = [];
 
-                // Get all products
-                productFactory.query(function (data) {
-                    $scope.products = data;
+                // Functions
+                $scope.initialize = function () {
+                    // Indicate loading started
+                    NProgress.start();
 
-                    // Indicate loading complete
-                    NProgress.done();
-                }, function (err) {
-                    console.log(err);
+                    // Get all products
+                    productFactory.query(function (data) {
+                        // Save
+                        $scope.products = data;
 
-                    // Indicate loading complete
-                    NProgress.done();
-                });
+                        // Indicate loading completed
+                        NProgress.done();
+                    }, function (err) {
+                        console.log(err);
 
-//            product.get({id: 1}, function (data) {
-//                console.log(data);
-//                $scope.products = data;
-//            }, function (err) {
-//                console.log('Fat gaya bc.');
-//            });
-//
-//            product.save({name: 'IOkC'}, {name: 'JituIOC'}, function (data) {
-//                console.log(data);
-//            }, function (err) {
-//                console.log('Fat gaya bc.');
-//            });
-//
-//            product.query(function (data) {
-//                console.log(data);
-//                $scope.products = data;
-//            });
-//
-//            product.delete({id: 1});
+                        // Indicate loading completed
+                        NProgress.done();
+                    });
+                };
+
+                // Run
+                $scope.initialize();
             }]);
