@@ -27,7 +27,7 @@
     height: 35px;
 }
 
-.table > tbody > tr > td {
+.table > tbody > tr > th, .table > tbody > tr > td {
     vertical-align: initial;
 }
 
@@ -38,3 +38,12 @@ body {
 }
 
 /* Custom Rules */
+
+.chiclet{
+    border: 1px dotted black;
+    border-radius: 2px;
+    font-size: 11px;
+    letter-spacing: 1px;
+    padding: 1px 4px;
+    text-transform: uppercase;
+}

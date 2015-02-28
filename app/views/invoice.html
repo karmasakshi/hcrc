@@ -1,1 +1,75 @@
-<p>This is the invoice view.</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="well well-sm text-center">
+                <span class="lead"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Invoices</span>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="well well-sm text-right">
+                <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#add-invoice-modal"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Add Invoice</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Type</th>
+                    <th class="text-center">Trader</th>
+                    <th class="text-center">Date</th>
+                    <th class="text-right">Cash</th>
+                    <th class="text-right">Non-Cash</th>
+                    <th class="text-right">Credit</th>
+                    <th class="text-right">Discount</th>
+                    <th class="text-center">Note</th>
+                    <th class="text-center">Added By</th>
+                    <th class="text-center">Actions</th>
+                    <th class="text-center">Active</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="invoice in invoices">
+                    <th scope="row" class="text-center">{{invoice.id}}</th>
+                    <td class="text-center" ng-class="{info: invoice.type === 'purchase'}"><span class="chiclet">{{invoice.type}}</span></td>
+                    <td class="text-center">{{invoice.trader}}</td>
+                    <td class="text-center">{{invoice.date}}</td>
+                    <td class="text-right">{{invoice.cash| currency: '₹'}}</td>
+                    <td class="text-right">{{invoice.noncash| currency: '₹'}}</td>
+                    <td class="text-right">{{invoice.credit| currency: '₹'}}</td>
+                    <td class="text-right">{{invoice.discount| currency: '₹'}}</td>
+                    <td class="text-center">{{invoice.note}}</td>
+                    <td class="text-center">{{invoice.addedby}}</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm btn-warning">Edit Invoice</button>
+                    </td>
+                    <td ng-class="{success: !invoice.active, warning: invoice.active}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div class="modal fade" id="add-invoice-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="modal-label">Add Invoice</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
