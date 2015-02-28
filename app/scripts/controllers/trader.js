@@ -23,7 +23,13 @@ angular.module('hcrcApp')
                         }
                         $scope.traders.push(trader);
                     });
+
+                    // Indicate loading complete
+                    NProgress.done();
                 }, function (err) {
                     console.log(err);
+
+                    // Indicate loading complete
+                    NProgress.done();
                 });
             }]);

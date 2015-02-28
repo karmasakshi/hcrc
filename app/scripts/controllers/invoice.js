@@ -24,7 +24,13 @@ angular.module('hcrcApp')
                         });
                         $scope.invoices.push(invoice);
                     });
+
+                    // Indicate loading complete
+                    NProgress.done();
                 }, function (err) {
                     console.log(err);
+
+                    // Indicate loading complete
+                    NProgress.done();
                 });
             }]);

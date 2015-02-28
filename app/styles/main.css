@@ -6,6 +6,12 @@
     padding: 0.2em 0;
 }
 
+/* NProgress Overrides */
+#nprogress .spinner {
+    bottom: 15px;
+    top: auto;
+}
+
 /* Bootstrap Overrides */
 /* Firefox specific rule; recommended in Bootstrap docs */
 @-moz-document url-prefix() {

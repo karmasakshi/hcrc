@@ -15,7 +15,13 @@ angular.module('hcrcApp')
                 // Get all admins
                 adminFactory.query(function (data) {
                     $scope.admins = data;
+
+                    // Indicate loading complete
+                    NProgress.done();
                 }, function (err) {
                     console.log(err);
+
+                    // Indicate loading complete
+                    NProgress.done();
                 });
             }]);

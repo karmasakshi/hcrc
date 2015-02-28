@@ -15,8 +15,14 @@ angular.module('hcrcApp')
                 // Get all products
                 productFactory.query(function (data) {
                     $scope.products = data;
+
+                    // Indicate loading complete
+                    NProgress.done();
                 }, function (err) {
                     console.log(err);
+
+                    // Indicate loading complete
+                    NProgress.done();
                 });
 
 //            product.get({id: 1}, function (data) {
