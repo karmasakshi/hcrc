@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name hcrcApp.controller:AboutCtrl
+ * @name hcrcApp.controller:AdminprofileCtrl
  * @description
- * # AboutCtrl
+ * # AdminprofileCtrl
  * Controller of the hcrcApp
  */
 angular.module('hcrcApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('AdminprofileCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',

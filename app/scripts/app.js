@@ -24,25 +24,37 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
       .when('/product', {
         templateUrl: 'views/product.html',
         controller: 'ProductCtrl'
+      })
+      .when('/product/:id', {
+        templateUrl: 'views/productprofile.html',
+        controller: 'ProductprofileCtrl'
       })
       .when('/admin', {
         templateUrl: 'views/admin.html',
         controller: 'AdminCtrl'
       })
+      .when('/admin/:id', {
+        templateUrl: 'views/adminprofile.html',
+        controller: 'AdminprofileCtrl'
+      })
       .when('/trader', {
         templateUrl: 'views/trader.html',
         controller: 'TraderCtrl'
       })
+      .when('/trader/:id', {
+        templateUrl: 'views/traderprofile.html',
+        controller: 'TraderprofileCtrl'
+      })
       .when('/invoice', {
         templateUrl: 'views/invoice.html',
         controller: 'InvoiceCtrl'
+      })
+      .when('/invoice/:id', {
+        templateUrl: 'views/invoiceprofile.html',
+        controller: 'InvoiceprofileCtrl'
       })
       .when('/report', {
         templateUrl: 'views/report.html',
@@ -53,6 +65,6 @@ angular
       });
   }).run(function($location, $rootScope){
       $rootScope.$on('$routeChangeSuccess', function() {
-          $rootScope.navtab = $location.path().substr(1);
+          $rootScope.navtab = $location.path().split('/')[1];
         });
   });

@@ -38,7 +38,7 @@
                     </td>
                     <td class="text-center">
                         <button class="btn btn-sm btn-primary">Trader Report</button>
-                        <button class="btn btn-sm btn-warning">Edit Trader</button>
+                        <a ng-href="#/trader/{{trader.id}}" class="btn btn-sm btn-warning">Edit Trader</a>
                     </td>
                     <td ng-class="{success: trader.active, warning: !trader.active}"></td>
                 </tr>

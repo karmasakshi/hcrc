@@ -34,7 +34,7 @@
                     <td class="text-center">{{product.unit}}</td>
                     <td class="text-center">
                         <button class="btn btn-sm btn-primary">Product Report</button>
-                        <button class="btn btn-sm btn-warning">Edit Product</button>
+                        <a ng-href="#/product/{{product.id}}" class="btn btn-sm btn-warning">Edit Product</a>
                     </td>
                     <td ng-class="{success: product.active, warning: !product.active}"></td>
                 </tr>

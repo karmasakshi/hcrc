@@ -32,7 +32,7 @@
                     <td>{{admin.password}}</td>
                     <td class="text-center">
                         <button class="btn btn-sm btn-primary">Admin Report</button>
-                        <button class="btn btn-sm btn-warning">Edit Admin</button>
+                        <a ng-href="#/admin/{{admin.id}}" class="btn btn-sm btn-warning">Edit Admin</a>
                     </td>
                     <td ng-class="{success: admin.active, warning: !admin.active}"></td>
                 </tr>

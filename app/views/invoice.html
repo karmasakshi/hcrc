@@ -45,9 +45,9 @@
                     <td class="text-center">{{invoice.note}}</td>
                     <td class="text-center">{{invoice.addedby}}</td>
                     <td class="text-center">
-                        <button class="btn btn-sm btn-warning">Edit Invoice</button>
+                        <a ng-href="#/invoice/{{invoice.id}}" class="btn btn-sm btn-warning">Edit Invoice</a>
                     </td>
-                    <td ng-class="{success: !invoice.active, warning: invoice.active}"></td>
+                    <td ng-class="{success: invoice.active, warning: !invoice.active}"></td>
                 </tr>
             </tbody>
         </table>

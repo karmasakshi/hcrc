@@ -1,17 +1,17 @@
 'use strict';
 
-describe('Controller: AboutCtrl', function () {
+describe('Controller: InvoiceprofileCtrl', function () {
 
   // load the controller's module
   beforeEach(module('hcrcApp'));
 
-  var AboutCtrl,
+  var InvoiceprofileCtrl,
     scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    AboutCtrl = $controller('AboutCtrl', {
+    InvoiceprofileCtrl = $controller('InvoiceprofileCtrl', {
       $scope: scope
     });
   }));
