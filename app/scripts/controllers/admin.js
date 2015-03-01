@@ -12,14 +12,17 @@ angular.module('hcrcApp')
         .controller('AdminCtrl', ['$scope', 'adminFactory', function ($scope, adminFactory) {
                 // Models
                 $scope.admins = [];
+                $scope.limit = 10;
+                $scope.skip = 0;
+                $scope.sort = 'id ASC';
 
                 // Functions
                 $scope.initialize = function () {
                     // Indicate loading started
                     NProgress.start();
-                    
+
                     // Get all admins
-                    adminFactory.query(function (data) {
+                    adminFactory.query({limit: $scope.limit, skip: $scope.skip, sort: $scope.sort}, function (data) {
                         // Save
                         $scope.admins = data;
 

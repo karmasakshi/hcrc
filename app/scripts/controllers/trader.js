@@ -11,15 +11,18 @@
 angular.module('hcrcApp')
         .controller('TraderCtrl', ['$scope', 'traderFactory', function ($scope, traderFactory) {
                 // Models
+                $scope.limit = 10;
+                $scope.skip = 0;
+                $scope.sort = 'id ASC';
                 $scope.traders = [];
 
                 // Functions
                 $scope.initialize = function () {
                     // Indicate loading started
                     NProgress.start();
-                    
+
                     // Get all traders
-                    traderFactory.query(function (data) {
+                    traderFactory.query({limit: $scope.limit, skip: $scope.skip, sort: $scope.sort}, function (data) {
                         // Process
                         angular.forEach(data, function (trader) {
                             // Parse phone numbers
@@ -30,7 +33,7 @@ angular.module('hcrcApp')
                             if (trader.emails !== null) {
                                 trader.emails = trader.emails.split(',');
                             }
-                            
+
                             // Save
                             $scope.traders.push(trader);
                         });
