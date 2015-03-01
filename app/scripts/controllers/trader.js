@@ -11,9 +11,12 @@
 angular.module('hcrcApp')
         .controller('TraderCtrl', ['$scope', 'traderFactory', function ($scope, traderFactory) {
                 // Models
-                $scope.limit = 10;
-                $scope.skip = 0;
-                $scope.sort = 'id ASC';
+                $scope.query = {
+                    active: true,
+                    limit: 10,
+                    skip: 0,
+                    sort: 'id ASC'
+                };
                 $scope.traders = [];
 
                 // Functions
@@ -22,7 +25,7 @@ angular.module('hcrcApp')
                     NProgress.start();
 
                     // Get all traders
-                    traderFactory.query({limit: $scope.limit, skip: $scope.skip, sort: $scope.sort}, function (data) {
+                    traderFactory.query($scope.query, function (data) {
                         // Process
                         angular.forEach(data, function (trader) {
                             // Parse phone numbers

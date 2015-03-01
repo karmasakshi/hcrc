@@ -11,10 +11,13 @@
 angular.module('hcrcApp')
         .controller('ProductCtrl', ['$scope', 'productFactory', function ($scope, productFactory) {
                 // Models
-                $scope.limit = 10;
+                $scope.query = {
+                    active: true,
+                    limit: 10,
+                    skip: 0,
+                    sort: 'id ASC'
+                };
                 $scope.products = [];
-                $scope.skip = 10;
-                $scope.sort = 'id ASC';
 
                 // Functions
                 $scope.initialize = function () {
@@ -22,7 +25,7 @@ angular.module('hcrcApp')
                     NProgress.start();
 
                     // Get all products
-                    productFactory.query({limit: $scope.limit, skip: $scope.skip, sort: $scope.sort}, function (data) {
+                    productFactory.query($scope.query, function (data) {
                         // Save
                         $scope.products = data;
 
