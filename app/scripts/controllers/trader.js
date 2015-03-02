@@ -9,7 +9,7 @@
  */
 
 angular.module('hcrcApp')
-        .controller('TraderCtrl', ['$scope', 'traderFactory', function ($scope, traderFactory) {
+        .controller('TraderCtrl', ['$scope', 'traderFactory', 'utilityFactory', function ($scope, traderFactory, utilityFactory) {
                 // Models
                 $scope.query = {
                     active: true,
@@ -25,7 +25,7 @@ angular.module('hcrcApp')
                     NProgress.start();
 
                     // Get all traders
-                    traderFactory.query($scope.query, function (data) {
+                    traderFactory.query(utilityFactory.processQuery($scope.query), function (data) {
                         // Process
                         angular.forEach(data, function (trader) {
                             // Parse phone numbers

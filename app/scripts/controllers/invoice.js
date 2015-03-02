@@ -9,11 +9,11 @@
  */
 
 angular.module('hcrcApp')
-        .controller('InvoiceCtrl', ['$scope', 'adminFactory', 'invoiceFactory', 'traderFactory', function ($scope, adminFactory, invoiceFactory, traderFactory) {
+        .controller('InvoiceCtrl', ['$scope', 'adminFactory', 'invoiceFactory', 'traderFactory', 'utilityFactory', function ($scope, adminFactory, invoiceFactory, traderFactory, utilityFactory) {
                 // Models
                 $scope.invoices = [];
                 $scope.query = {
-                    active: 1,
+                    active: true,
                     limit: 10,
                     skip: 0,
                     sort: 'id ASC'
@@ -25,7 +25,7 @@ angular.module('hcrcApp')
                     NProgress.start();
 
                     // Get all invoices
-                    invoiceFactory.query($scope.query, function (data) {
+                    invoiceFactory.query(utilityFactory.processQuery($scope.query), function (data) {
                         // Process
                         angular.forEach(data, function (invoice) {
                             // Get associated data

@@ -9,7 +9,7 @@
  */
 
 angular.module('hcrcApp')
-        .controller('ProductCtrl', ['$scope', 'productFactory', function ($scope, productFactory) {
+        .controller('ProductCtrl', ['$scope', 'productFactory', 'utilityFactory', function ($scope, productFactory, utilityFactory) {
                 // Models
                 $scope.query = {
                     active: true,
@@ -25,7 +25,7 @@ angular.module('hcrcApp')
                     NProgress.start();
 
                     // Get all products
-                    productFactory.query($scope.query, function (data) {
+                    productFactory.query(utilityFactory.processQuery($scope.query), function (data) {
                         // Save
                         $scope.products = data;
 
