@@ -10,7 +10,7 @@
 
 angular.module('hcrcApp')
         .controller('InvoiceCtrl', ['$scope', 'adminFactory', 'invoiceFactory', 'traderFactory', 'utilityFactory', function ($scope, adminFactory, invoiceFactory, traderFactory, utilityFactory) {
-                // Models
+                /* MODELS */
                 $scope.invoices = [];
                 $scope.query = {
                     active: true,
@@ -19,7 +19,7 @@ angular.module('hcrcApp')
                     sort: 'id ASC'
                 };
 
-                // Functions
+                /* FUNCTIONS */
                 $scope.initialize = function () {
                     // Indicate loading started
                     NProgress.start();
@@ -31,17 +31,27 @@ angular.module('hcrcApp')
                             // Get associated data
                             traderFactory.get({id: invoice.trader}, function (data) {
                                 invoice.trader = data.name;
+                            }, function (err) {
+                                console.log(err);
+
+                                // Indicate loading completed
+                                NProgress.done();
                             });
 
                             // Get associated data
                             adminFactory.get({id: invoice.addedby}, function (data) {
                                 invoice.addedby = data.username;
+                            }, function (err) {
+                                console.log(err);
+
+                                // Indicate loading completed
+                                NProgress.done();
                             });
 
                             // Convert time to readable format
                             invoice.date = moment(invoice.date).fromNow();
 
-                            // Save
+                            // Save for rendering
                             $scope.invoices.push(invoice);
                         });
 
@@ -55,6 +65,6 @@ angular.module('hcrcApp')
                     });
                 };
 
-                // Run
+                /* RUN */
                 $scope.initialize();
             }]);

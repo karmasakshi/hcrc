@@ -10,7 +10,7 @@
 
 angular.module('hcrcApp')
         .controller('TraderCtrl', ['$scope', 'traderFactory', 'utilityFactory', function ($scope, traderFactory, utilityFactory) {
-                // Models
+                /* MODELS */
                 $scope.query = {
                     active: true,
                     limit: 10,
@@ -19,7 +19,7 @@ angular.module('hcrcApp')
                 };
                 $scope.traders = [];
 
-                // Functions
+                /* FUNCTIONS */
                 $scope.initialize = function () {
                     // Indicate loading started
                     NProgress.start();
@@ -32,12 +32,13 @@ angular.module('hcrcApp')
                             if (trader.phones !== null) {
                                 trader.phones = trader.phones.split(',');
                             }
+                            
                             // Parse email addresses
                             if (trader.emails !== null) {
                                 trader.emails = trader.emails.split(',');
                             }
 
-                            // Save
+                            // Save for rendering
                             $scope.traders.push(trader);
                         });
 
@@ -51,6 +52,6 @@ angular.module('hcrcApp')
                     });
                 };
 
-                // Run
+                /* RUN */
                 $scope.initialize();
             }]);

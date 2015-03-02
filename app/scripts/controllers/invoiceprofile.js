@@ -2,13 +2,14 @@
 
 /**
  * @ngdoc function
- * @name hcrcApp.controller:InvoiceprofileCtrl
+ * @name hcrcApp.controller:InvoiceProfileCtrl
  * @description
- * # InvoiceprofileCtrl
+ * # InvoiceProfileCtrl
  * Controller of the hcrcApp
  */
+
 angular.module('hcrcApp')
-        .controller('InvoiceprofileCtrl', ['$routeParams', '$scope', 'invoiceFactory', function ($routeParams, $scope, invoiceFactory) {
+        .controller('InvoiceProfileCtrl', ['$routeParams', '$scope', 'invoiceFactory', function ($routeParams, $scope, invoiceFactory) {
                 // Models
                 $scope.invoice;
 

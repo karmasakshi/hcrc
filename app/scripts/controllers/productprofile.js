@@ -2,13 +2,14 @@
 
 /**
  * @ngdoc function
- * @name hcrcApp.controller:ProductprofileCtrl
+ * @name hcrcApp.controller:ProductProfileCtrl
  * @description
- * # ProductprofileCtrl
+ * # ProductProfileCtrl
  * Controller of the hcrcApp
  */
+
 angular.module('hcrcApp')
-        .controller('ProductprofileCtrl', ['$routeParams', '$scope', 'productFactory', function ($routeParams, $scope, productFactory) {
+        .controller('ProductProfileCtrl', ['$routeParams', '$scope', 'productFactory', function ($routeParams, $scope, productFactory) {
                 // Models
                 $scope.product;
 

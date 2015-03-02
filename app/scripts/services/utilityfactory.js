@@ -11,6 +11,12 @@
 angular.module('hcrcApp')
         .factory('utilityFactory', function () {
             return {
+                processTimestamp: function (data) {
+                    data.createdAt = moment(data.createdAt).fromNow();
+                    data.updatedAt = moment(data.updatedAt).fromNow();
+
+                    return data;
+                },
                 processQuery: function (query) {
                     switch (query.active) {
                         case true:
@@ -24,6 +30,12 @@ angular.module('hcrcApp')
                     }
 
                     return query;
+                },
+                removeTimestamp: function (data) {
+                    delete data.createdAt;
+                    delete data.updatedAt;
+
+                    return data;
                 }
             };
         });

@@ -10,7 +10,7 @@
 
 angular.module('hcrcApp')
         .controller('ProductCtrl', ['$scope', 'productFactory', 'utilityFactory', function ($scope, productFactory, utilityFactory) {
-                // Models
+                /* MODELS */
                 $scope.query = {
                     active: true,
                     limit: 10,
@@ -19,14 +19,14 @@ angular.module('hcrcApp')
                 };
                 $scope.products = [];
 
-                // Functions
+                /* FUNCTIONS */
                 $scope.initialize = function () {
                     // Indicate loading started
                     NProgress.start();
 
                     // Get all products
                     productFactory.query(utilityFactory.processQuery($scope.query), function (data) {
-                        // Save
+                        // Save for rendering
                         $scope.products = data;
 
                         // Indicate loading completed
@@ -39,6 +39,6 @@ angular.module('hcrcApp')
                     });
                 };
 
-                // Run
+                /* RUN */
                 $scope.initialize();
             }]);

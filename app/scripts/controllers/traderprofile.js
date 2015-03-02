@@ -2,13 +2,14 @@
 
 /**
  * @ngdoc function
- * @name hcrcApp.controller:TraderprofileCtrl
+ * @name hcrcApp.controller:TraderProfileCtrl
  * @description
- * # TraderprofileCtrl
+ * # TraderProfileCtrl
  * Controller of the hcrcApp
  */
+
 angular.module('hcrcApp')
-        .controller('TraderprofileCtrl', ['$routeParams', '$scope', 'traderFactory', function ($routeParams, $scope, traderFactory) {
+        .controller('TraderProfileCtrl', ['$routeParams', '$scope', 'traderFactory', function ($routeParams, $scope, traderFactory) {
                 // Models
                 $scope.trader;
 

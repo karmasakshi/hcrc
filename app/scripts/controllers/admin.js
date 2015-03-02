@@ -10,7 +10,7 @@
 
 angular.module('hcrcApp')
         .controller('AdminCtrl', ['$scope', 'adminFactory', 'utilityFactory', function ($scope, adminFactory, utilityFactory) {
-                // Models
+                /* MODELS */
                 $scope.admins = [];
                 $scope.query = {
                     active: true,
@@ -18,15 +18,15 @@ angular.module('hcrcApp')
                     skip: 0,
                     sort: 'id ASC'
                 };
-                
-                // Functions
+
+                /* FUNCTIONS */
                 $scope.initialize = function () {
                     // Indicate loading started
                     NProgress.start();
 
                     // Get all admins
                     adminFactory.query(utilityFactory.processQuery($scope.query), function (data) {
-                        // Save
+                        // Save for rendering
                         $scope.admins = data;
 
                         // Indicate loading completed
@@ -39,6 +39,6 @@ angular.module('hcrcApp')
                     });
                 };
 
-                // Run
+                /* RUN */
                 $scope.initialize();
             }]);

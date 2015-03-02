@@ -30,7 +30,7 @@ angular
                     })
                     .when('/product/:id', {
                         templateUrl: 'views/productprofile.html',
-                        controller: 'ProductprofileCtrl'
+                        controller: 'ProductProfileCtrl'
                     })
                     .when('/admin', {
                         templateUrl: 'views/admin.html',
@@ -38,7 +38,7 @@ angular
                     })
                     .when('/admin/:id', {
                         templateUrl: 'views/adminprofile.html',
-                        controller: 'AdminprofileCtrl'
+                        controller: 'AdminProfileCtrl'
                     })
                     .when('/trader', {
                         templateUrl: 'views/trader.html',
@@ -46,7 +46,7 @@ angular
                     })
                     .when('/trader/:id', {
                         templateUrl: 'views/traderprofile.html',
-                        controller: 'TraderprofileCtrl'
+                        controller: 'TraderProfileCtrl'
                     })
                     .when('/invoice', {
                         templateUrl: 'views/invoice.html',
@@ -54,7 +54,7 @@ angular
                     })
                     .when('/invoice/:id', {
                         templateUrl: 'views/invoiceprofile.html',
-                        controller: 'InvoiceprofileCtrl'
+                        controller: 'InvoiceProfileCtrl'
                     })
                     .when('/report', {
                         templateUrl: 'views/report.html',

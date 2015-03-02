@@ -1,22 +1,22 @@
 'use strict';
 
-describe('Controller: TraderprofileCtrl', function () {
+describe('Controller: TraderProfileCtrl', function () {
 
-  // load the controller's module
-  beforeEach(module('hcrcApp'));
+    // load the controller's module
+    beforeEach(module('hcrcApp'));
 
-  var TraderprofileCtrl,
-    scope;
+    var TraderProfileCtrl,
+            scope;
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    TraderprofileCtrl = $controller('TraderprofileCtrl', {
-      $scope: scope
+    // Initialize the controller and a mock scope
+    beforeEach(inject(function ($controller, $rootScope) {
+        scope = $rootScope.$new();
+        TraderProfileCtrl = $controller('TraderProfileCtrl', {
+            $scope: scope
+        });
+    }));
+
+    it('should attach a list of awesomeThings to the scope', function () {
+        expect(scope.awesomeThings.length).toBe(3);
     });
-  }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
 });
