@@ -1,1 +1,150 @@
-<p>This is the invoiceprofile view.</p>
+<div class="container">
+    <div class="row" ng-hide="createMode">
+        <div class="col-md-3">
+            <div class="well well-sm text-center">
+                <span class="lead"><span class="glyphicon glyphicon-file" aria-hidden="true"></span> Invoice: {{invoice.id}}</span>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <span class="lead"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Last Updated: {{invoice.updatedAt}}</span>
+                    </div>
+                    <div class="col-xs-12 hidden-lg hidden-md">
+                        <hr>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <span class="lead"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Created: {{invoice.createdAt}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="createMode">
+        <div class="col-xs-12">
+            <div class="well well-sm text-center">
+                <span class="lead"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> New Invoice</span>
+            </div>
+        </div>
+    </div>
+    <hr ng-hide="createMode">
+    <div class="row" ng-hide="createMode">
+        <div class="col-xs-6 text-center">
+            <button class="btn btn-primary" ng-class="{active: editMode}" ng-click="toggleEditMode()"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span ng-show="editMode">Disable</span><span ng-hide="editMode">Enable</span> Edit Mode</button>
+        </div>
+        <div class="col-xs-6 text-center">
+            <button class="btn btn-danger" ng-class="{active: invoice.active}" ng-click="toggleActive()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> <span ng-show="invoice.active">Deactivate</span><span ng-hide="invoice.active">Activate</span> Invoice</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="invoice-type" class="col-sm-2 control-label">Type</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="invoice.type" class="form-control" id="invoice-type" placeholder="Type" ng-disabled="!editMode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="invoice-trader" class="col-sm-2 control-label">Trader</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="invoice.trader" class="form-control" id="invoice-trader" placeholder="Trader" ng-disabled="!editMode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="invoice-cash" class="col-sm-2 control-label">Cash</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="invoice.cash" class="form-control" id="invoice-cash" placeholder="Cash" ng-disabled="!editMode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="invoice-credit" class="col-sm-2 control-label">Credit</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="invoice.credit" class="form-control" id="invoice-credit" placeholder="Credit" ng-disabled="!editMode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="invoice-noncash" class="col-sm-2 control-label">Non-Cash</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="invoice.noncash" class="form-control" id="invoice-noncash" placeholder="Non-Cash" ng-disabled="!editMode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="invoice-discount" class="col-sm-2 control-label">Discount</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="invoice.discount" class="form-control" id="invoice-discount" placeholder="Discount" ng-disabled="!editMode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="invoice-note" class="col-sm-2 control-label">Note</label>
+                    <div class="col-sm-10">
+                        <textarea ng-model="invoice.note" class="form-control" id="invoice-note" placeholder="Note" ng-disabled="!editMode"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="invoice-addedby" class="col-sm-2 control-label">Added By</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="invoice.addedby" class="form-control" id="invoice-addedby" placeholder="Added By" ng-disabled="!editMode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="invoice-date" class="col-sm-2 control-label">Date</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="invoice.date" class="form-control" id="invoice-date" placeholder="Date" ng-disabled="!editMode">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center">#</th>
+                            <th>Name</th>
+                            <th class="text-right">Quantity</th>
+                            <th class="text-right">Rate</th>
+                            <th class="text-right">Total</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="product in products">
+                            <th scope="row" class="text-center">{{$index}}</th>
+                            <td>{{product.name}}</td>
+                            <td class="text-right"><input type="number" ng-model="product.quantity" ng-disabled="!editmode"></td>
+                            <td class="text-right"><input type="text" ng-model="product.rate" ng-disabled="!editmode"></td>
+                            <td class="text-right">{{product.total}}</td>
+                            <td class="text-center">
+                                <button class="btn btn-danger">Remove</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-center">{{products.length}}</th>
+                            <td></td>
+                            <td class="text-right"></td>
+                            <td class="text-right"></td>
+                            <td class="text-right"></td>
+                            <td class="text-center">
+                                <button class="btn btn-success">Add</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <button class="btn btn-success" ng-disabled="!editMode" ng-click="updateData()" ng-hide="createMode"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span> <span ng-show="editMode">Save</span><span ng-hide="editMode"> Nothing to Save</span></button>
+            <button class="btn btn-success" ng-disabled="!editMode" ng-click="saveData()" ng-show="createMode"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span> <span ng-show="editMode">Save</span><span ng-hide="editMode"> Nothing to Save</span></button>
+        </div>
+    </div>
+    <hr>
+</div>

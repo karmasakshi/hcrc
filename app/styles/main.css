@@ -43,9 +43,13 @@ body {
     padding-top: 70px;
 }
 
+table {
+    background: white;
+}
+
 /* Custom Rules */
 
-.chiclet{
+.chiclet {
     border: 1px solid grey;
     border-radius: 2px;
     font-size: 11px;

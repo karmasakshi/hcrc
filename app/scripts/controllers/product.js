@@ -13,7 +13,7 @@ angular.module('hcrcApp')
                 /* MODELS */
                 $scope.query = {
                     active: true,
-                    limit: 10,
+                    limit: 100,
                     skip: 0,
                     sort: 'id ASC'
                 };

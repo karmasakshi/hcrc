@@ -13,7 +13,7 @@ angular.module('hcrcApp')
                 /* MODELS */
                 $scope.query = {
                     active: true,
-                    limit: 10,
+                    limit: 100,
                     skip: 0,
                     sort: 'id ASC'
                 };
@@ -28,12 +28,12 @@ angular.module('hcrcApp')
                     traderFactory.query(utilityFactory.processQuery($scope.query), function (data) {
                         // Process
                         angular.forEach(data, function (trader) {
-                            // Parse phone numbers
+                            // Parse phone number(s)
                             if (trader.phones !== null) {
                                 trader.phones = trader.phones.split(',');
                             }
-                            
-                            // Parse email addresses
+
+                            // Parse email address(es)
                             if (trader.emails !== null) {
                                 trader.emails = trader.emails.split(',');
                             }

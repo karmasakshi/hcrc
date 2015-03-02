@@ -60,6 +60,9 @@ angular
                         templateUrl: 'views/report.html',
                         controller: 'ReportCtrl'
                     })
+                    .when('/error', {
+                        templateUrl: 'views/error.html'
+                    })
                     .otherwise({
                         redirectTo: '/'
                     });
