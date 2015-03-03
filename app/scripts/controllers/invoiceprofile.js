@@ -29,7 +29,7 @@ angular.module('hcrcApp')
                         NProgress.done();
                     });
 
-                    invoiceproductFactory.query({limit: 100, sort: 'id ASC'}, function (data) {
+                    invoiceproductFactory.query({invoice: id, limit: 100, sort: 'id ASC'}, function (data) {
                         angular.forEach(data, function (product) {
                             productFactory.get({id: product.product}, function (data) {
                                 product.name = data.name;
@@ -67,6 +67,7 @@ angular.module('hcrcApp')
                     // Indicate loading started
                     NProgress.start();
 
+                    // Save
                     $scope.invoice.$save(function (data) {
                         $location.url('/invoice/' + data.id);
                         $scope.processData(data);
@@ -127,7 +128,7 @@ angular.module('hcrcApp')
                     $scope.invoice = utilityFactory.removeTimestamp($scope.invoice);
 
                     // Update
-                    $scope.admin.$update({id: $scope.admin.id}, function (data) {
+                    $scope.invoice.$update({id: $scope.invoice.id}, function (data) {
                         $scope.processData(data);
 
                         // Indicate loading completed

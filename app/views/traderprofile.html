@@ -1,1 +1,72 @@
-<p>This is the traderprofile view.</p>
+<div class="container">
+    <div class="row" ng-hide="createMode">
+        <div class="col-md-3">
+            <div class="well well-sm text-center">
+                <span class="lead"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> Trader: {{trader.id}}</span>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <span class="lead"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Last Updated: {{trader.updatedAt}}</span>
+                    </div>
+                    <div class="col-xs-12 hidden-lg hidden-md">
+                        <hr>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <span class="lead"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Created: {{trader.createdAt}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" ng-show="createMode">
+        <div class="col-xs-12">
+            <div class="well well-sm text-center">
+                <span class="lead"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> New Trader</span>
+            </div>
+        </div>
+    </div>
+    <hr ng-hide="createMode">
+    <div class="row" ng-hide="createMode">
+        <div class="col-xs-6 text-center">
+            <button class="btn btn-primary" ng-class="{active: editMode}" ng-click="toggleEditMode()"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> <span ng-show="editMode">Disable</span><span ng-hide="editMode">Enable</span> Edit Mode</button>
+        </div>
+        <div class="col-xs-6 text-center">
+            <button class="btn btn-danger" ng-class="{active: trader.active}" ng-click="toggleActive()"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> <span ng-show="trader.active">Deactivate</span><span ng-hide="trader.active">Activate</span> Trader</button>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-lg-12">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label for="trader-name" class="col-sm-2 control-label">Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="trader.name" class="form-control" id="trader-name" placeholder="Name" ng-disabled="!editMode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="trader-phones" class="col-sm-2 control-label">Phone(s)</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="trader.phones" class="form-control" id="trader-phones" placeholder="Phone(s)" ng-disabled="!editMode">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="trader-emails" class="col-sm-2 control-label">Email(s)</label>
+                    <div class="col-sm-10">
+                        <input type="text" ng-model="trader.emails" class="form-control" id="trader-emails" placeholder="Email(s)" ng-disabled="!editMode">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-xs-12 text-center">
+            <button class="btn btn-success" ng-disabled="!editMode" ng-click="updateData()" ng-hide="createMode"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span> <span ng-show="editMode">Save</span><span ng-hide="editMode"> Nothing to Save</span></button>
+            <button class="btn btn-success" ng-disabled="!editMode" ng-click="saveData()" ng-show="createMode"><span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span> <span ng-show="editMode">Save</span><span ng-hide="editMode"> Nothing to Save</span></button>
+        </div>
+    </div>
+</div>

@@ -22,6 +22,7 @@
                             <th>Name</th>
                             <th class="text-right">Default Price</th>
                             <th class="text-center">Unit</th>
+                            <th class="text-center">Inventory Low</th>
                             <th class="text-center">Actions</th>
                             <th class="text-center">Active</th>
                         </tr>
@@ -32,6 +33,7 @@
                             <td>{{product.name}}</td>
                             <td class="text-right">{{product.defaultprice| currency: '₹'}}</td>
                             <td class="text-center">{{product.unit}}</td>
+                            <td class="text-center">{{product.inventorylow}}</td>
                             <td class="text-center">
                                 <button class="btn btn-sm btn-primary">Product Report</button>
                                 <a ng-href="#/product/{{product.id}}" class="btn btn-sm btn-warning">Edit Product</a>
